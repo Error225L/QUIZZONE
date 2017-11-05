@@ -18,6 +18,7 @@ public class Finestra {
 	private JButton btnRispFalse;
 	private JScrollPane scrollPane;
 	private JList list;
+	private JButton btnIstruzioni;
 	
 	public Finestra() {
 		try {
@@ -52,18 +53,62 @@ public class Finestra {
 		frmQuizzone.getContentPane().add(lblQuesito);
 		
 		btnRispTrue = new JButton("New button");
-		btnRispTrue.setBounds(40, 278, 195, 72);
+		btnRispTrue.setBounds(40, 293, 240, 57);
 		frmQuizzone.getContentPane().add(btnRispTrue);
 		
 		btnRispFalse = new JButton("New button");
-		btnRispFalse.setBounds(339, 278, 195, 72);
+		btnRispFalse.setBounds(294, 293, 240, 57);
 		frmQuizzone.getContentPane().add(btnRispFalse);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(40, 38, 494, 229);
+		scrollPane.setBounds(40, 50, 494, 232);
 		frmQuizzone.getContentPane().add(scrollPane);
 		
 		list = new JList();
 		scrollPane.setViewportView(list);
+		
+		btnIstruzioni = new JButton("Istruzioni");
+		btnIstruzioni.setBounds(485, 7, 89, 23);
+		frmQuizzone.getContentPane().add(btnIstruzioni);
+	}
+
+	public JFrame getFrmQuizzone() {
+		return frmQuizzone;
+	}
+
+	public void setFrmQuizzone(JFrame frmQuizzone) {
+		this.frmQuizzone = frmQuizzone;
+	}
+
+	public JButton getBtnRispTrue() {
+		return btnRispTrue;
+	}
+
+	public void setBtnRispTrue(JButton btnRispTrue) {
+		this.btnRispTrue = btnRispTrue;
+	}
+
+	public JButton getBtnRispFalse() {
+		return btnRispFalse;
+	}
+
+	public void setBtnRispFalse(JButton btnRispFalse) {
+		this.btnRispFalse = btnRispFalse;
+	}
+
+	public JList getList() {
+		return list;
+	}
+
+	public void setList(JList list) {
+		this.list = list;
+	}
+
+	public JButton getBtnIstruzioni() {
+		return btnIstruzioni;
+	}
+
+	public void setBtnIstruzioni(JButton btnIstruzioni) {
+		this.btnIstruzioni = btnIstruzioni;
 	}
 }
