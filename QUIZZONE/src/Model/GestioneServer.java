@@ -2,19 +2,28 @@ package Model;
 
 import java.util.ArrayList;
 
-public class GestioneServer {
-	private ArrayList<Domanda> vett;
+import javax.swing.JOptionPane;
 
-	public GestioneServer(ArrayList<Domanda> vett) {
-		this.vett = vett;
-	}
+public class GestioneServer extends ArrayList<Domanda> {
+	
+	private ArrayList<Domanda> domande;
+	
 	public GestioneServer() {
-		this.vett =new ArrayList<Domanda>();
+		this.domande = new ArrayList<Domanda>();
 	}
+	
+	public void insNuovaDomanda(Domanda nuovaDomanda) {
+		domande.add(nuovaDomanda);
+		Object[] options = {"OK"};
+		int optPane = JOptionPane.showOptionDialog(null, "Domanda inserita correttamente nell'archivio!", "Operazione eseguita", 
+				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+	}
+	
 	public ArrayList<Domanda> getVett() {
-		return vett;
+		return domande;
 	}
+	
 	public void setVett(ArrayList<Domanda> vett) {
-		this.vett = vett;
+		this.domande = vett;
 	}
 }

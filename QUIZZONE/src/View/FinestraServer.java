@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class FinestraServer {
 
@@ -37,6 +39,17 @@ public class FinestraServer {
 
 	
 	public FinestraServer() {
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
 		initialize();
 	}
 
@@ -59,10 +72,6 @@ public class FinestraServer {
 		frmQuizzone.getContentPane().add(btnIstruzioni);
 		
 		btnInserisci = new JButton("Inserisci");
-		btnInserisci.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		btnInserisci.setBounds(462, 316, 112, 34);
 		frmQuizzone.getContentPane().add(btnInserisci);
 		
@@ -94,6 +103,67 @@ public class FinestraServer {
 		lblRispFalse = new JLabel("Risposta falsa:");
 		lblRispFalse.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRispFalse.setBounds(10, 128, 201, 17);
-		frmQuizzone.getContentPane().add(lblRispFalse);
+		frmQuizzone.getContentPane().add(lblRispFalse);	
 	}
+
+
+	public JFrame getFrmQuizzone() {
+		return frmQuizzone;
+	}
+
+
+	public void setFrmQuizzone(JFrame frmQuizzone) {
+		this.frmQuizzone = frmQuizzone;
+	}
+
+
+	public JButton getBtnIstruzioni() {
+		return btnIstruzioni;
+	}
+
+
+	public void setBtnIstruzioni(JButton btnIstruzioni) {
+		this.btnIstruzioni = btnIstruzioni;
+	}
+
+
+	public JButton getBtnInserisci() {
+		return btnInserisci;
+	}
+
+
+	public void setBtnInserisci(JButton btnInserisci) {
+		this.btnInserisci = btnInserisci;
+	}
+
+
+	public JTextField getDomanda() {
+		return domanda;
+	}
+
+
+	public void setDomanda(JTextField domanda) {
+		this.domanda = domanda;
+	}
+
+
+	public JTextField getRispTrue() {
+		return rispTrue;
+	}
+
+
+	public void setRispTrue(JTextField rispTrue) {
+		this.rispTrue = rispTrue;
+	}
+
+
+	public JTextField getRispFalse() {
+		return rispFalse;
+	}
+
+
+	public void setRispFalse(JTextField rispFalse) {
+		this.rispFalse = rispFalse;
+	}
+	
 }
