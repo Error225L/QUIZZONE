@@ -67,6 +67,7 @@ public class Finestra {
 		list = new JList();
 		scrollPane.setViewportView(list);
 		
+		
 		btnIstruzioni = new JButton("Istruzioni");
 		btnIstruzioni.setBounds(485, 7, 89, 23);
 		frmQuizzone.getContentPane().add(btnIstruzioni);

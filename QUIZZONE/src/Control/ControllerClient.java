@@ -18,23 +18,27 @@ public class ControllerClient implements ActionListener{
 		this.g = g;
 		f.getFrmQuizzone().setVisible(true);
 		this.addingActionListeners();
+		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==f.getBtnRispTrue()) {
 			
+			stampaNuovaDomanda();
 		}
 		if(e.getSource()==f.getBtnRispFalse()) {
-			
+			stampaNuovaDomanda();
 		}
 		if(e.getSource()==f.getBtnIstruzioni()) {
 			
 		}
 	}
 	
-	public void stampaNuovaDomanda(int cont) {
-		f.getList().setModel(g.getNewDomanda(cont));
+	private void stampaNuovaDomanda() {
+		model.clear();
+		model.addElement(g.getNewDomanda().getDomanda());
+		f.getList().setModel(model);
 	}
 	
 	private void addingActionListeners() {

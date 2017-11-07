@@ -18,6 +18,8 @@ public class ControllerServer implements ActionListener{
 		this.f = f; 
 		f.getFrmQuizzone().setVisible(true);
 		this.addingActionListeners();
+		Thread t=new Thread(this.g);
+		t.start();
 	}
 
 	@Override
@@ -57,7 +59,7 @@ public class ControllerServer implements ActionListener{
 				return false;
 			}
 			else {
-				if(f.getRispTrue().getText().compareTo("")==0) {
+				if(f.getRispFalse().getText().compareTo("")==0) {
 					int optPane = JOptionPane.showOptionDialog(null, "INSERISCI UNA RISPOSTA FALSA!!!", title, 
 							JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 					return false;
