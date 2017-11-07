@@ -8,17 +8,19 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import java.awt.Color;
+import java.awt.SystemColor;
+import java.awt.Font;
 
 public class Finestra {
 
 	private JFrame frmQuizzone;
-	private JLabel lblDomanda;
-	private JLabel lblQuesito;
 	private JButton btnRispTrue;
 	private JButton btnRispFalse;
 	private JScrollPane scrollPane;
 	private JList list;
 	private JButton btnIstruzioni;
+	private JLabel lblDomanda;
 	
 	public Finestra() {
 		try {
@@ -37,31 +39,22 @@ public class Finestra {
 	
 	private void initialize() {
 		frmQuizzone = new JFrame();
+		frmQuizzone.getContentPane().setBackground(new Color(135, 206, 250));
 		frmQuizzone.setTitle("QUIZZONE");
-		frmQuizzone.setBounds(100, 100, 600, 400);
+		frmQuizzone.setBounds(100, 100, 410, 353);
 		frmQuizzone.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmQuizzone.getContentPane().setLayout(null);
 		
-		lblDomanda = new JLabel("DOMANDA");
-		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDomanda.setBounds(234, 11, 109, 14);
-		frmQuizzone.getContentPane().add(lblDomanda);
-		
-		lblQuesito = new JLabel("");
-		lblQuesito.setHorizontalAlignment(SwingConstants.CENTER);
-		lblQuesito.setBounds(10, 36, 564, 28);
-		frmQuizzone.getContentPane().add(lblQuesito);
-		
 		btnRispTrue = new JButton("New button");
-		btnRispTrue.setBounds(40, 293, 240, 57);
+		btnRispTrue.setBounds(41, 247, 128, 57);
 		frmQuizzone.getContentPane().add(btnRispTrue);
 		
 		btnRispFalse = new JButton("New button");
-		btnRispFalse.setBounds(294, 293, 240, 57);
+		btnRispFalse.setBounds(236, 247, 122, 57);
 		frmQuizzone.getContentPane().add(btnRispFalse);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(40, 50, 494, 232);
+		scrollPane.setBounds(25, 71, 340, 137);
 		frmQuizzone.getContentPane().add(scrollPane);
 		
 		list = new JList();
@@ -69,8 +62,14 @@ public class Finestra {
 		
 		
 		btnIstruzioni = new JButton("Istruzioni");
-		btnIstruzioni.setBounds(485, 7, 89, 23);
+		btnIstruzioni.setBounds(10, 26, 89, 23);
 		frmQuizzone.getContentPane().add(btnIstruzioni);
+		
+		lblDomanda = new JLabel("DOMANDA");
+		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDomanda.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 18));
+		lblDomanda.setBounds(106, 11, 153, 46);
+		frmQuizzone.getContentPane().add(lblDomanda);
 	}
 
 	public JFrame getFrmQuizzone() {
