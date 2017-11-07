@@ -33,6 +33,7 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 		this.domande = vett;
 	}
 
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub

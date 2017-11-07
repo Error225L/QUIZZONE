@@ -25,6 +25,7 @@ public class ControllerClient implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==f.getBtnRispTrue()) {
 			
+			
 			stampaNuovaDomanda();
 		}
 		if(e.getSource()==f.getBtnRispFalse()) {

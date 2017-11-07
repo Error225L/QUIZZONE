@@ -20,6 +20,7 @@ public class GestioneClient{
 			InputStreamReader isr2;
 			isr2 = new InputStreamReader(s.getInputStream());
 			BufferedReader in2=new BufferedReader(isr2);
+			
 			while(i<3){
 				if(i==0){
 					dom=in2.readLine();

@@ -32,6 +32,7 @@ public class ControllerServer implements ActionListener{
 		}
 		if(e.getSource()==f.getBtnIstruzioni()) {
 			
+			
 		}
 	}
 	
