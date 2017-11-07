@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.Color;
+import java.awt.Font;
 
 public class FinestraServer {
 
@@ -58,52 +60,70 @@ public class FinestraServer {
 	 */
 	private void initialize() {
 		frmQuizzone = new JFrame();
+		frmQuizzone.getContentPane().setBackground(new Color(135, 206, 250));
 		frmQuizzone.setTitle("QUIZZONE");
-		frmQuizzone.setBounds(100, 100, 600, 400);
+		frmQuizzone.setBounds(100, 100, 410, 353);
 		frmQuizzone.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmQuizzone.getContentPane().setLayout(null);
 		
 		btnIstruzioni = new JButton("Istruzioni");
+		btnIstruzioni.setForeground(Color.DARK_GRAY);
 		btnIstruzioni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnIstruzioni.setBounds(10, 327, 89, 23);
+		btnIstruzioni.setFont(new Font("Vineta BT", Font.PLAIN, 14));
+		btnIstruzioni.setBounds(10, 285, 140, 20);
 		frmQuizzone.getContentPane().add(btnIstruzioni);
 		
 		btnInserisci = new JButton("Inserisci");
-		btnInserisci.setBounds(462, 316, 112, 34);
+		btnInserisci.setForeground(Color.BLACK);
+		btnInserisci.setFont(new Font("Vineta BT", Font.PLAIN, 14));
+		btnInserisci.setBounds(237, 271, 140, 34);
 		frmQuizzone.getContentPane().add(btnInserisci);
 		
 		domanda = new JTextField();
-		domanda.setBounds(221, 45, 265, 20);
+		domanda.setBounds(154, 88, 223, 20);
 		frmQuizzone.getContentPane().add(domanda);
 		domanda.setColumns(10);
 		
-		lblDomanda = new JLabel("Aggiungi una domanda:");
-		lblDomanda.setHorizontalAlignment(SwingConstants.LEFT);
-		lblDomanda.setBounds(10, 48, 201, 17);
+		lblDomanda = new JLabel("Domanda:");
+		lblDomanda.setForeground(Color.BLUE);
+		lblDomanda.setFont(new Font("Vineta BT", Font.PLAIN, 14));
+		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDomanda.setBounds(23, 90, 121, 17);
 		frmQuizzone.getContentPane().add(lblDomanda);
 		
 		rispTrue = new JTextField();
-		rispTrue.setBounds(221, 85, 265, 20);
+		rispTrue.setBounds(154, 187, 223, 20);
 		frmQuizzone.getContentPane().add(rispTrue);
 		rispTrue.setColumns(10);
 		
 		rispFalse = new JTextField();
-		rispFalse.setBounds(221, 125, 265, 20);
+		rispFalse.setBounds(154, 147, 223, 20);
 		frmQuizzone.getContentPane().add(rispFalse);
 		rispFalse.setColumns(10);
 		
-		lblRispTrue = new JLabel("Risposta vera:");
+		lblRispTrue = new JLabel("V");
+		lblRispTrue.setForeground(Color.GREEN);
+		lblRispTrue.setFont(new Font("Vineta BT", Font.PLAIN, 20));
 		lblRispTrue.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRispTrue.setBounds(10, 88, 201, 17);
+		lblRispTrue.setBounds(23, 149, 121, 18);
 		frmQuizzone.getContentPane().add(lblRispTrue);
 		
-		lblRispFalse = new JLabel("Risposta falsa:");
+		lblRispFalse = new JLabel("F");
+		lblRispFalse.setForeground(Color.RED);
+		lblRispFalse.setBackground(Color.WHITE);
+		lblRispFalse.setFont(new Font("Vineta BT", Font.PLAIN, 20));
 		lblRispFalse.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRispFalse.setBounds(10, 128, 201, 17);
+		lblRispFalse.setBounds(23, 189, 121, 18);
 		frmQuizzone.getContentPane().add(lblRispFalse);	
+		
+		JLabel lblNewLabel = new JLabel("QUIZZONE");
+		lblNewLabel.setFont(new Font("Vineta BT", Font.ITALIC, 20));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(114, 11, 162, 46);
+		frmQuizzone.getContentPane().add(lblNewLabel);
 	}
 
 
@@ -165,5 +185,4 @@ public class FinestraServer {
 	public void setRispFalse(JTextField rispFalse) {
 		this.rispFalse = rispFalse;
 	}
-	
 }
