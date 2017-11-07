@@ -11,5 +11,8 @@ public class Main {
 		GestioneClient g = new GestioneClient();
 		ControllerClient c = new ControllerClient(f, g);
 	}
+	
+	
+	
 
 }
