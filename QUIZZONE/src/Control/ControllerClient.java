@@ -1,10 +1,13 @@
 package Control;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.ServerSocket;
 import java.net.Socket;
 
 import Model.GestioneClient;
@@ -26,28 +29,22 @@ public class ControllerClient implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Socket s;
 		try {
-			//s = new Socket("localhost",9999);
-		
-		if(e.getSource()==f.getBtnRispTrue()) {
-			
-			
-			stampaNuovaDomanda();
-				/*PrintWriter p=new PrintWriter(s.getOutputStream(),true);
-				p.println("Ok");*/
-			
-		}
-		if(e.getSource()==f.getBtnRispFalse()) {
-			stampaNuovaDomanda();
-			/*PrintWriter p=new PrintWriter(s.getOutputStream(),true);
-			p.println("Ok");*/
-		}
-		if(e.getSource()==f.getBtnIstruzioni()) {
-			
-		}
-		}catch(Exception e1){
-			
+			if(e.getSource()==f.getBtnRispTrue()) {
+				stampaNuovaDomanda();
+				Object[] options = {"OK"};
+				int optPane = JOptionPane.showOptionDialog(null, "Stai per procedere alla domanda successiva", "ATTENZIONE", 
+						JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+				g.sendOk();
+			}
+			if(e.getSource()==f.getBtnRispFalse()) {
+				stampaNuovaDomanda();
+				g.sendOk();
+			}
+			if(e.getSource()==f.getBtnIstruzioni()) {
+				
+			}
+		}catch(Exception e1) {
 		}
 	}
 	

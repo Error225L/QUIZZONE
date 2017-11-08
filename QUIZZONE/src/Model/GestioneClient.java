@@ -42,6 +42,16 @@ public class GestioneClient {
 		return d;
 	}
 
+
+	public void sendOk() throws IOException {
+		PrintWriter p = new PrintWriter(s.getOutputStream(), true);
+		p.println("OK");
+	}
+	
+	public Socket getS() {
+		return s;
+	}
+
 	public Domanda getD() {
 		return d;
 	}
@@ -73,4 +83,5 @@ public class GestioneClient {
 	public void setRispFalsa(String rispFalsa) {
 		this.rispFalsa = rispFalsa;
 	}
+
 }

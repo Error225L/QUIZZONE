@@ -60,7 +60,7 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 					f=false;
 					InputStreamReader isr=new InputStreamReader(s.getInputStream());
 					BufferedReader in=new BufferedReader(isr);
-					if(in.readLine().compareTo("Ok")==0){
+					if(in.readLine().compareTo("OK")==0){
 						i++;
 						f=true;
 					}
