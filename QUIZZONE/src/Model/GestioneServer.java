@@ -36,46 +36,37 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 	
 	@Override
 	public void run() {
-		try{ServerSocket ss=new ServerSocket(9999);
-		Socket s=ss.accept();
-		while(true){
-			//Socket s=ss.accept();
-			//riceve testo
-			PrintWriter p=new PrintWriter(s.getOutputStream(),true);
-			int i=0;
-			int j;
-			boolean f=true;
-			while(f==true){
-				j=0;
-				while(j<3){
-					if(j==0){	
-					p.println(domande.get(i).getDomanda());
-					}else{
-						if(j==1){
-							p.println(domande.get(i).getRispostaFalsa());
-						}else{
-							if(j==2){
+		try{
+			ServerSocket ss=new ServerSocket(9999);
+			Socket s=ss.accept();
+			while(true){
+				PrintWriter p = new PrintWriter(s.getOutputStream(),true);
+				int i=0;
+				boolean f=true;
+				while(f==true){
+					for(int j=1; j<=3; j++) {
+						switch(j) {
+							case 1:
+								p.println(domande.get(i).getDomanda());
+								break;
+							case 2:
 								p.println(domande.get(i).getRispostaVera());
-							}
+								break;
+							case 3:
+								p.println(domande.get(i).getRispostaFalsa());
+								break;
 						}
 					}
-					j++;
-					
+					f=false;
+					InputStreamReader isr=new InputStreamReader(s.getInputStream());
+					BufferedReader in=new BufferedReader(isr);
+					if(in.readLine().compareTo("Ok")==0){
+						i++;
+						f=true;
+					}
 				}
-				f=false;
-				InputStreamReader isr=new InputStreamReader(s.getInputStream());
-				BufferedReader in=new BufferedReader(isr);
-				if(in.readLine().compareTo("Ok")==0){
-					i++;
-					f=true;
-				}
-				
-				
+				//tornare all'inizio per accettare nuova conn
 			}
-			
-			//tornare all'inizio per accettare nuova conn
-		
-		}
 		}catch(Exception e){
 			
 		}

@@ -1,0 +1,30 @@
+while (i < 3) {
+				if (i == 0) {
+					dom = in2.readLine();
+				} else {
+					if (i == 1) {
+						rispVera = in2.readLine();
+					} else {
+						rispFalsa = in2.readLine();
+						
+					}					
+				}
+				i++;
+			}
+			
+			
+			j=0;
+					while(j<3){
+						if(j==0){	
+						p.println(domande.get(i).getDomanda());
+						}else{
+							if(j==1){
+								p.println(domande.get(i).getRispostaFalsa());
+							}else{
+								if(j==2){
+									p.println(domande.get(i).getRispostaVera());
+								}
+							}
+						}
+						j++;
+					}

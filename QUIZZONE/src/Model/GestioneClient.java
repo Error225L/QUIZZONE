@@ -12,28 +12,26 @@ import javax.swing.ListModel;
 public class GestioneClient {
 	Domanda d;
 	String dom = null, rispVera = null, rispFalsa = null;
-	int i = 0;
 	Socket s;
 
 	public Domanda getNewDomanda() {
 		try {
 			s = new Socket("localhost", 9999);
-			InputStreamReader isr2;
-			isr2 = new InputStreamReader(s.getInputStream());
+			InputStreamReader isr2 = new InputStreamReader(s.getInputStream());
 			BufferedReader in2 = new BufferedReader(isr2);
 			
-			while (i < 3) {
-				if (i == 0) {
-					dom = in2.readLine();
-				} else {
-					if (i == 1) {
-						rispVera = in2.readLine();
-					} else {
-						rispFalsa = in2.readLine();
-						
-					}					
+			for(int i=1; i<=3; i++) {
+				switch(i) {
+					case 1:
+						dom=in2.readLine();
+						break;
+					case 2:
+						rispVera=in2.readLine();
+						break;
+					case 3:
+						rispFalsa=in2.readLine();
+						break;
 				}
-				i++;
 			}
 
 		} catch (IOException e) {
