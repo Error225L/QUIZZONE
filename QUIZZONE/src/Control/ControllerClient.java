@@ -3,6 +3,9 @@ package Control;
 import javax.swing.DefaultListModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 import Model.GestioneClient;
 import View.Finestra;
@@ -23,15 +26,27 @@ public class ControllerClient implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		Socket s;
+		try {
+			//s = new Socket("localhost",9999);
+		
 		if(e.getSource()==f.getBtnRispTrue()) {
 			
 			
 			stampaNuovaDomanda();
+				/*PrintWriter p=new PrintWriter(s.getOutputStream(),true);
+				p.println("Ok");*/
+			
 		}
 		if(e.getSource()==f.getBtnRispFalse()) {
 			stampaNuovaDomanda();
+			/*PrintWriter p=new PrintWriter(s.getOutputStream(),true);
+			p.println("Ok");*/
 		}
 		if(e.getSource()==f.getBtnIstruzioni()) {
+			
+		}
+		}catch(Exception e1){
 			
 		}
 	}

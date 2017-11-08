@@ -38,9 +38,9 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		try{ServerSocket ss=new ServerSocket(9999);
-		//Socket s=ss.accept();
+		Socket s=ss.accept();
 		while(true){
-			Socket s=ss.accept();
+			//Socket s=ss.accept();
 			//riceve testo
 			PrintWriter p=new PrintWriter(s.getOutputStream(),true);
 			int i=0;
