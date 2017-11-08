@@ -36,7 +36,6 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		try{ServerSocket ss=new ServerSocket(9999);
 		Socket s=ss.accept();
 		while(true){

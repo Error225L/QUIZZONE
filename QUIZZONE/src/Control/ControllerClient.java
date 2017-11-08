@@ -55,6 +55,8 @@ public class ControllerClient implements ActionListener{
 		model.clear();
 		model.addElement(g.getNewDomanda().getDomanda());
 		f.getList().setModel(model);
+		f.getBtnRispTrue().setText(g.getRispVera());
+		f.getBtnRispFalse().setText(g.getRispFalsa());;
 	}
 	
 	private void addingActionListeners() {
