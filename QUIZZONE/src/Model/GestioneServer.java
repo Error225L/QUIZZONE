@@ -20,9 +20,6 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 	
 	public void insNuovaDomanda(Domanda nuovaDomanda) {
 		domande.add(nuovaDomanda);
-		Object[] options = {"OK"};
-		int optPane = JOptionPane.showOptionDialog(null, "Domanda inserita correttamente nell'archivio!", "Operazione eseguita", 
-				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 	}
 	
 	public ArrayList<Domanda> getVett() {

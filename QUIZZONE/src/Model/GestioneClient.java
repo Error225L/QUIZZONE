@@ -15,13 +15,20 @@ public class GestioneClient {
 	String dom = null, rispVera = null, rispFalsa = null;
 	Socket s;
 
+	public GestioneClient() {
+		try {
+			this.s = new Socket("localhost", 9999);
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public Domanda getNewDomanda() {
 		try {
-			//s = new Socket("localhost", 9999);
 			InputStreamReader isr2 = new InputStreamReader(s.getInputStream());
 			BufferedReader in2 = new BufferedReader(isr2);
-			
 			for(int i=1; i<=3; i++) {
 				switch(i) {
 					case 1:
@@ -40,7 +47,6 @@ public class GestioneClient {
 			e.printStackTrace();
 		}
 		d = new Domanda(dom, rispVera, rispFalsa);
-		System.out.println(d);
 		return d;
 	}
 
@@ -85,18 +91,4 @@ public class GestioneClient {
 	public void setRispFalsa(String rispFalsa) {
 		this.rispFalsa = rispFalsa;
 	}
-
-
-	public GestioneClient() {
-		try {
-			this.s = new Socket("localhost", 9999);
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 }

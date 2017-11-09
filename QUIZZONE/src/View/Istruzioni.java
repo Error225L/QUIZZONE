@@ -9,36 +9,38 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Istruzioni {
 
 	private JFrame frmIstruzioni;
 	private JScrollPane scrollPane;
 	private JButton btnProcedi;
-	private JList list;
+	private JList<String> list;
 
 	public Istruzioni(String ServerOrClient) {
 		initialize();
-		DefaultListModel model = new DefaultListModel();
+		DefaultListModel<String> model = new DefaultListModel<String>();
 		if(ServerOrClient.compareTo("C")==0) {
 			model.clear();
-			model.addElement("Istruzioni Client: dai una risposta al quesito; "
-					+ "\n Apparirà una finestra per dirti se hai risposto correttamente o meno;"
-					+ "\n Procedi con la domanda successiva cliccando il pulsante in alto a destra;"
-					+ "\n Se preferisci uscire premi la 'X' e conferma.");
+			model.addElement("Istruzioni Client: dai una risposta al quesito; ");
+			model.addElement("Apparirà una finestra per dirti se hai risposto correttamente o meno;");
+			model.addElement("Procedi con la domanda successiva cliccando il pulsante in alto a destra;");
+			model.addElement("Se preferisci uscire premi la 'X' e conferma.");
 			list.setModel(model);
 		}
 		if(ServerOrClient.compareTo("S")==0) {
 			model.clear();
-			model.addElement("Istruzioni Server: inserisci la domanda e completa i campi delle risposte;"
-					+ "\n premi il bottone inserisci;"
-					+ "\n continua ad inserire domande oppure esci premendo la 'X'.");
+			model.addElement("Istruzioni Server: inserisci la domanda e completa i campi delle risposte;");
+			model.addElement("premi il bottone inserisci;");
+			model.addElement("continua ad inserire domande oppure esci premendo la 'X'.");
 			list.setModel(model);
 		}
 	}
 
 	private void initialize() {
 		frmIstruzioni = new JFrame();
+		frmIstruzioni.getContentPane().setBackground(new Color(102, 204, 255));
 		frmIstruzioni.setTitle("ISTRUZIONI");
 		frmIstruzioni.setBounds(100, 100, 375, 250);
 		frmIstruzioni.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,7 +51,7 @@ public class Istruzioni {
 		scrollPane.setBounds(10, 11, 339, 156);
 		frmIstruzioni.getContentPane().add(scrollPane);
 		
-		list = new JList();
+		list = new JList<String>();
 		scrollPane.setViewportView(list);
 		
 		btnProcedi = new JButton("Capito!");

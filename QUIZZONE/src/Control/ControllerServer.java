@@ -13,6 +13,7 @@ import View.Istruzioni;
 public class ControllerServer implements ActionListener{
 	private FinestraServer f;
 	private GestioneServer g;
+	Object[] options = {"OK"};
 	
 	public ControllerServer(FinestraServer f, GestioneServer g) {
 		this.g = g;
@@ -29,10 +30,15 @@ public class ControllerServer implements ActionListener{
 			if(this.controls()) {								//Se passano i controlli
 				g.insNuovaDomanda(this.nuovaDomanda());
 				this.clear();
+				int optPane = JOptionPane.showOptionDialog(null, "Domanda inserita correttamente nell'archivio!", "Operazione eseguita", 
+						JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 			}
 		}
 		if(e.getSource()==f.getBtnIstruzioni()) {
 			Istruzioni i = new Istruzioni("S");
+		}
+		if(e.getSource()==f.getBtnAggDomPredef()) {
+			this.aggDomPredef();
 		}
 	}
 	
@@ -45,7 +51,6 @@ public class ControllerServer implements ActionListener{
 	}
 	
 	private boolean controls() {
-		Object[] options = {"OK"};
 		int flag=1;
 		String title = "Operazione Fallita";
 		if(f.getDomanda().getText().compareTo("")==0) {
@@ -72,9 +77,20 @@ public class ControllerServer implements ActionListener{
 		}
 	}
 	
+	private void aggDomPredef() {
+		g.insNuovaDomanda(new Domanda("Quando nacque il partito socialista italiano?", "1892", "1953"));
+		g.insNuovaDomanda(new Domanda("Come si chiama il fondatore di Apple?", "Steve Jobs", "Bill Gates"));
+		g.insNuovaDomanda(new Domanda("Chi vinse i mondiali di calcio nel 2006?", "Italia", "Francia"));
+		g.insNuovaDomanda(new Domanda("Qual'e la formula chimica dell'acqua?", "H2O", "O2"));
+		g.insNuovaDomanda(new Domanda("Chi vinse il campionato Motomondiale nel 2009?", "Valentino Rossi", "Jorge Lorenzo"));
+		int optPane = JOptionPane.showOptionDialog(null, "Domande predefinite aggiunte !", "Aggiunta effettuata", 
+				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+	}
+	
 	private void addingActionListeners() {
 		f.getBtnInserisci().addActionListener(this);
 		f.getBtnIstruzioni().addActionListener(this);
+		f.getBtnAggDomPredef().addActionListener(this);
 	}
 	
 	private void clear() {

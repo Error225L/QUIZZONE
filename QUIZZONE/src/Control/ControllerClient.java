@@ -18,40 +18,44 @@ import View.Istruzioni;
 public class ControllerClient implements ActionListener{
 	private Finestra f;
 	private GestioneClient g;
-	DefaultListModel model = new DefaultListModel();
+	DefaultListModel<String> model = new DefaultListModel<String>();
 	int cont = 0;
-	Color rosso = new Color(255, 0, 0);
-	Color verde = new Color(0, 255, 0);
-	Color bianco = new Color(255, 255, 255);
+	Object[] options = {"OK"};
 	
-	public ControllerClient(Finestra f, GestioneClient g) {
+	public ControllerClient(Finestra f, GestioneClient g) throws Exception {
 		this.f = f;
 		this.g = g;
 		f.getFrmQuizzone().setVisible(true);
 		this.addingActionListeners();
-		
+		int optPane = JOptionPane.showOptionDialog(null, "Iniziamo a giocare!", "Divertiamoci", 
+				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+		stampaNuovaDomanda();
+		g.sendOk();	
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
 			if(e.getSource()==f.getBtnRispTrue()) {
-				Object[] options = {"OK"};
+				f.getBtnRispTrue().setBackground(Color.GREEN);
 				int optPane = JOptionPane.showOptionDialog(null, "HAI INDOVINATO", "GIUSTO", 
 						JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-				f.getBtnRispTrue().setBackground(verde);
+				stampaNuovaDomanda();
+				g.sendOk();
 			}
 			if(e.getSource()==f.getBtnRispFalse()) {
-				Object[] options = {"OK"};
+				f.getBtnRispFalse().setBackground(Color.RED);
 				int optPane = JOptionPane.showOptionDialog(null, "HAI SBAGLIATO !", "SBAGLIATO", 
 						JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-				f.getBtnRispFalse().setBackground(rosso);
+				stampaNuovaDomanda();
+				g.sendOk();
 			}
 			if(e.getSource()==f.getBtnSucc()) {
-				stampaNuovaDomanda();
-				g.sendOk();							//passa alla domanda successiva
-				f.getBtnRispTrue().setBackground(bianco);
-				f.getBtnRispFalse().setBackground(bianco);
+				int dialogResult = JOptionPane.showConfirmDialog (null, "Voui davvero saltare questa domanda?","Attenzione!",JOptionPane.YES_NO_OPTION);
+				if(dialogResult==0) {		
+					stampaNuovaDomanda();
+					g.sendOk();
+				}
 			}
 			if(e.getSource()==f.getBtnIstruzioni()) {
 				Istruzioni i = new Istruzioni("C");
@@ -66,6 +70,8 @@ public class ControllerClient implements ActionListener{
 		f.getList().setModel(model);
 		f.getBtnRispTrue().setText(g.getRispVera());
 		f.getBtnRispFalse().setText(g.getRispFalsa());;
+		f.getBtnRispTrue().setBackground(Color.WHITE);
+		f.getBtnRispFalse().setBackground(Color.WHITE);
 	}
 	
 	private void addingActionListeners() {

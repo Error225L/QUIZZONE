@@ -25,6 +25,7 @@ public class FinestraServer {
 	private JTextField rispFalse;
 	private JLabel lblRispTrue;
 	private JLabel lblRispFalse;
+	private JButton btnAggDomPredef;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -86,7 +87,7 @@ public class FinestraServer {
 		
 		lblDomanda = new JLabel("Domanda:");
 		lblDomanda.setForeground(Color.BLUE);
-		lblDomanda.setFont(new Font("Vineta BT", Font.PLAIN, 14));
+		lblDomanda.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 20));
 		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDomanda.setBounds(23, 90, 121, 17);
 		frmQuizzone.getContentPane().add(lblDomanda);
@@ -103,7 +104,7 @@ public class FinestraServer {
 		
 		lblRispTrue = new JLabel("V");
 		lblRispTrue.setForeground(Color.GREEN);
-		lblRispTrue.setFont(new Font("Vineta BT", Font.PLAIN, 20));
+		lblRispTrue.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 24));
 		lblRispTrue.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRispTrue.setBounds(23, 149, 121, 18);
 		frmQuizzone.getContentPane().add(lblRispTrue);
@@ -111,16 +112,20 @@ public class FinestraServer {
 		lblRispFalse = new JLabel("F");
 		lblRispFalse.setForeground(Color.RED);
 		lblRispFalse.setBackground(Color.WHITE);
-		lblRispFalse.setFont(new Font("Vineta BT", Font.PLAIN, 20));
+		lblRispFalse.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 24));
 		lblRispFalse.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRispFalse.setBounds(23, 189, 121, 18);
 		frmQuizzone.getContentPane().add(lblRispFalse);	
 		
 		JLabel lblNewLabel = new JLabel("QUIZZONE");
-		lblNewLabel.setFont(new Font("Vineta BT", Font.ITALIC, 20));
+		lblNewLabel.setFont(new Font("Monotype Corsiva", Font.ITALIC, 24));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(114, 11, 162, 46);
 		frmQuizzone.getContentPane().add(lblNewLabel);
+		
+		btnAggDomPredef = new JButton("Domande predefinite");
+		btnAggDomPredef.setBounds(10, 254, 140, 20);
+		frmQuizzone.getContentPane().add(btnAggDomPredef);
 	}
 
 
@@ -182,4 +187,15 @@ public class FinestraServer {
 	public void setRispFalse(JTextField rispFalse) {
 		this.rispFalse = rispFalse;
 	}
+
+
+	public JButton getBtnAggDomPredef() {
+		return btnAggDomPredef;
+	}
+
+	
+	public void setBtnAggDomPredef(JButton btnAggDomPredef) {
+		this.btnAggDomPredef = btnAggDomPredef;
+	}
+	
 }
