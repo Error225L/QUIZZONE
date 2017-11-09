@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import Model.Domanda;
 import Model.GestioneServer;
 import View.FinestraServer;
+import View.Istruzioni;
 
 public class ControllerServer implements ActionListener{
 	private FinestraServer f;
@@ -31,8 +32,7 @@ public class ControllerServer implements ActionListener{
 			}
 		}
 		if(e.getSource()==f.getBtnIstruzioni()) {
-			
-			
+			Istruzioni i = new Istruzioni("S");
 		}
 	}
 	

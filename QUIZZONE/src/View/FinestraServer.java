@@ -55,9 +55,6 @@ public class FinestraServer {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frmQuizzone = new JFrame();
 		frmQuizzone.getContentPane().setBackground(new Color(135, 206, 250));

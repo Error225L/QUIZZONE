@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
@@ -14,9 +15,10 @@ public class GestioneClient {
 	String dom = null, rispVera = null, rispFalsa = null;
 	Socket s;
 
+	
 	public Domanda getNewDomanda() {
 		try {
-			s = new Socket("localhost", 9999);
+			//s = new Socket("localhost", 9999);
 			InputStreamReader isr2 = new InputStreamReader(s.getInputStream());
 			BufferedReader in2 = new BufferedReader(isr2);
 			
@@ -82,6 +84,19 @@ public class GestioneClient {
 
 	public void setRispFalsa(String rispFalsa) {
 		this.rispFalsa = rispFalsa;
+	}
+
+
+	public GestioneClient() {
+		try {
+			this.s = new Socket("localhost", 9999);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

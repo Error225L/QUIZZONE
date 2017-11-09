@@ -21,6 +21,7 @@ public class Finestra {
 	private JList list;
 	private JButton btnIstruzioni;
 	private JLabel lblDomanda;
+	private JButton btnSucc;
 	
 	public Finestra() {
 		try {
@@ -46,7 +47,7 @@ public class Finestra {
 		frmQuizzone.getContentPane().setLayout(null);
 		
 		btnRispTrue = new JButton("New button");
-		btnRispTrue.setBounds(41, 247, 128, 57);
+		btnRispTrue.setBounds(40, 247, 128, 57);
 		frmQuizzone.getContentPane().add(btnRispTrue);
 		
 		btnRispFalse = new JButton("New button");
@@ -67,9 +68,14 @@ public class Finestra {
 		
 		lblDomanda = new JLabel("DOMANDA");
 		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDomanda.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 18));
-		lblDomanda.setBounds(106, 11, 153, 46);
+		lblDomanda.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 18));
+		lblDomanda.setBounds(120, 14, 153, 46);
 		frmQuizzone.getContentPane().add(lblDomanda);
+		
+		btnSucc = new JButton(">");
+		btnSucc.setFont(new Font("Viner Hand ITC", Font.PLAIN, 15));
+		btnSucc.setBounds(339, 11, 45, 23);
+		frmQuizzone.getContentPane().add(btnSucc);
 	}
 
 	public JFrame getFrmQuizzone() {
@@ -83,6 +89,7 @@ public class Finestra {
 	public JButton getBtnRispTrue() {
 		return btnRispTrue;
 	}
+	
 
 	public void setBtnRispTrue(JButton btnRispTrue) {
 		this.btnRispTrue = btnRispTrue;
@@ -110,5 +117,13 @@ public class Finestra {
 
 	public void setBtnIstruzioni(JButton btnIstruzioni) {
 		this.btnIstruzioni = btnIstruzioni;
+	}
+
+	public JButton getBtnSucc() {
+		return btnSucc;
+	}
+
+	public void setBtnSucc(JButton btnSucc) {
+		this.btnSucc = btnSucc;
 	}
 }
