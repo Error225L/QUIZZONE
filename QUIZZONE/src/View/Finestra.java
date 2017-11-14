@@ -11,6 +11,7 @@ import javax.swing.JList;
 import java.awt.Color;
 import java.awt.SystemColor;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class Finestra {
 
@@ -47,34 +48,39 @@ public class Finestra {
 		frmQuizzone.getContentPane().setLayout(null);
 		
 		btnRispTrue = new JButton("New button");
-		btnRispTrue.setBounds(40, 247, 128, 57);
+		btnRispTrue.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnRispTrue.setBounds(33, 258, 150, 46);
 		frmQuizzone.getContentPane().add(btnRispTrue);
 		
 		btnRispFalse = new JButton("New button");
-		btnRispFalse.setBounds(236, 247, 122, 57);
+		btnRispFalse.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnRispFalse.setBounds(204, 258, 150, 46);
 		frmQuizzone.getContentPane().add(btnRispFalse);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(25, 71, 340, 137);
+		scrollPane.setBounds(10, 140, 374, 107);
 		frmQuizzone.getContentPane().add(scrollPane);
 		
 		list = new JList();
+		list.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		scrollPane.setViewportView(list);
 		
 		
-		btnIstruzioni = new JButton("Istruzioni");
-		btnIstruzioni.setBounds(10, 26, 89, 23);
+		btnIstruzioni = new JButton("");
+		btnIstruzioni.setIcon(new ImageIcon(Finestra.class.getResource("/javax/swing/plaf/metal/icons/ocean/question.png")));
+		btnIstruzioni.setBounds(10, 11, 29, 33);
 		frmQuizzone.getContentPane().add(btnIstruzioni);
 		
 		lblDomanda = new JLabel("DOMANDA");
 		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDomanda.setFont(new Font("Verdana", Font.BOLD | Font.ITALIC, 18));
-		lblDomanda.setBounds(120, 14, 153, 46);
+		lblDomanda.setFont(new Font("Vineta BT", Font.PLAIN, 20));
+		lblDomanda.setBounds(115, 11, 172, 46);
 		frmQuizzone.getContentPane().add(lblDomanda);
 		
-		btnSucc = new JButton(">");
+		btnSucc = new JButton("");
+		btnSucc.setIcon(new ImageIcon(Finestra.class.getResource("/com/sun/javafx/scene/web/skin/Redo_16x16_JFX.png")));
 		btnSucc.setFont(new Font("Viner Hand ITC", Font.PLAIN, 15));
-		btnSucc.setBounds(339, 11, 45, 23);
+		btnSucc.setBounds(355, 14, 29, 30);
 		frmQuizzone.getContentPane().add(btnSucc);
 	}
 

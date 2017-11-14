@@ -34,6 +34,7 @@ public class Istruzioni {
 			model.addElement("Istruzioni Server: inserisci la domanda e completa i campi delle risposte;");
 			model.addElement("premi il bottone inserisci;");
 			model.addElement("continua ad inserire domande oppure esci premendo la 'X'.");
+			model.addElement("Se vuoi generare delle domande Random premi sul bottone con il dado;");
 			list.setModel(model);
 		}
 	}

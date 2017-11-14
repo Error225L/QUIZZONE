@@ -83,7 +83,7 @@ public class ControllerServer implements ActionListener{
 		g.insNuovaDomanda(new Domanda("Chi vinse i mondiali di calcio nel 2006?", "Italia", "Francia"));
 		g.insNuovaDomanda(new Domanda("Qual'e la formula chimica dell'acqua?", "H2O", "O2"));
 		g.insNuovaDomanda(new Domanda("Chi vinse il campionato Motomondiale nel 2009?", "Valentino Rossi", "Jorge Lorenzo"));
-		int optPane = JOptionPane.showOptionDialog(null, "Domande predefinite aggiunte !", "Aggiunta effettuata", 
+		int optPane = JOptionPane.showOptionDialog(null, "Domande Random aggiunte !", "Aggiunta effettuata", 
 				JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 	}
 	

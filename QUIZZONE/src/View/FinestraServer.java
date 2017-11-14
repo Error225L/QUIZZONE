@@ -13,6 +13,9 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class FinestraServer {
 
@@ -64,14 +67,15 @@ public class FinestraServer {
 		frmQuizzone.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmQuizzone.getContentPane().setLayout(null);
 		
-		btnIstruzioni = new JButton("Istruzioni");
+		btnIstruzioni = new JButton("");
+		btnIstruzioni.setIcon(new ImageIcon(FinestraServer.class.getResource("/javax/swing/plaf/metal/icons/ocean/question.png")));
 		btnIstruzioni.setForeground(Color.DARK_GRAY);
 		btnIstruzioni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		btnIstruzioni.setFont(new Font("Vineta BT", Font.PLAIN, 14));
-		btnIstruzioni.setBounds(10, 285, 140, 20);
+		btnIstruzioni.setBounds(10, 271, 29, 34);
 		frmQuizzone.getContentPane().add(btnIstruzioni);
 		
 		btnInserisci = new JButton("Inserisci");
@@ -81,50 +85,56 @@ public class FinestraServer {
 		frmQuizzone.getContentPane().add(btnInserisci);
 		
 		domanda = new JTextField();
-		domanda.setBounds(154, 88, 223, 20);
+		domanda.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		domanda.setBounds(154, 88, 223, 24);
 		frmQuizzone.getContentPane().add(domanda);
 		domanda.setColumns(10);
 		
 		lblDomanda = new JLabel("Domanda:");
 		lblDomanda.setForeground(Color.BLUE);
-		lblDomanda.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 20));
+		lblDomanda.setFont(new Font("Vineta BT", Font.PLAIN, 15));
 		lblDomanda.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDomanda.setBounds(23, 90, 121, 17);
 		frmQuizzone.getContentPane().add(lblDomanda);
 		
 		rispTrue = new JTextField();
-		rispTrue.setBounds(154, 187, 223, 20);
+		rispTrue.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		rispTrue.setBounds(154, 149, 223, 24);
 		frmQuizzone.getContentPane().add(rispTrue);
 		rispTrue.setColumns(10);
 		
 		rispFalse = new JTextField();
-		rispFalse.setBounds(154, 147, 223, 20);
+		rispFalse.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		rispFalse.setBounds(154, 189, 223, 24);
 		frmQuizzone.getContentPane().add(rispFalse);
 		rispFalse.setColumns(10);
 		
 		lblRispTrue = new JLabel("V");
+		lblRispTrue.setToolTipText("");
 		lblRispTrue.setForeground(Color.GREEN);
-		lblRispTrue.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 24));
+		lblRispTrue.setFont(new Font("Vineta BT", Font.ITALIC, 18));
 		lblRispTrue.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRispTrue.setBounds(23, 149, 121, 18);
+		lblRispTrue.setBounds(23, 152, 121, 18);
 		frmQuizzone.getContentPane().add(lblRispTrue);
 		
 		lblRispFalse = new JLabel("F");
 		lblRispFalse.setForeground(Color.RED);
 		lblRispFalse.setBackground(Color.WHITE);
-		lblRispFalse.setFont(new Font("Segoe Print", Font.BOLD | Font.ITALIC, 24));
+		lblRispFalse.setFont(new Font("Vineta BT", Font.ITALIC, 18));
 		lblRispFalse.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRispFalse.setBounds(23, 189, 121, 18);
+		lblRispFalse.setBounds(23, 192, 121, 18);
 		frmQuizzone.getContentPane().add(lblRispFalse);	
 		
 		JLabel lblNewLabel = new JLabel("QUIZZONE");
-		lblNewLabel.setFont(new Font("Monotype Corsiva", Font.ITALIC, 24));
+		lblNewLabel.setFont(new Font("Vineta BT", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(114, 11, 162, 46);
+		lblNewLabel.setBounds(117, 11, 162, 46);
 		frmQuizzone.getContentPane().add(lblNewLabel);
 		
-		btnAggDomPredef = new JButton("Domande predefinite");
-		btnAggDomPredef.setBounds(10, 254, 140, 20);
+		btnAggDomPredef = new JButton("");
+		btnAggDomPredef.setForeground(Color.WHITE);
+		btnAggDomPredef.setIcon(new ImageIcon("C:\\Users\\Alunno\\git\\QUIZZONE\\QUIZZONE\\src\\dice.png"));
+		btnAggDomPredef.setBounds(49, 271, 29, 34);
 		frmQuizzone.getContentPane().add(btnAggDomPredef);
 	}
 
@@ -197,5 +207,4 @@ public class FinestraServer {
 	public void setBtnAggDomPredef(JButton btnAggDomPredef) {
 		this.btnAggDomPredef = btnAggDomPredef;
 	}
-	
 }
