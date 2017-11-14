@@ -41,6 +41,7 @@ public class Finestra {
 	
 	private void initialize() {
 		frmQuizzone = new JFrame();
+		frmQuizzone.setResizable(false);
 		frmQuizzone.getContentPane().setBackground(new Color(135, 206, 250));
 		frmQuizzone.setTitle("QUIZZONE");
 		frmQuizzone.setBounds(100, 100, 410, 353);

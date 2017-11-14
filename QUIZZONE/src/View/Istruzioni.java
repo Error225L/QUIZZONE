@@ -43,13 +43,13 @@ public class Istruzioni {
 		frmIstruzioni = new JFrame();
 		frmIstruzioni.getContentPane().setBackground(new Color(102, 204, 255));
 		frmIstruzioni.setTitle("ISTRUZIONI");
-		frmIstruzioni.setBounds(100, 100, 375, 250);
+		frmIstruzioni.setBounds(100, 100, 397, 251);
 		frmIstruzioni.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmIstruzioni.getContentPane().setLayout(null);
 		frmIstruzioni.setVisible(true);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 11, 339, 156);
+		scrollPane.setBounds(10, 11, 361, 156);
 		frmIstruzioni.getContentPane().add(scrollPane);
 		
 		list = new JList<String>();
@@ -61,7 +61,7 @@ public class Istruzioni {
 				frmIstruzioni.dispose();
 			}
 		});
-		btnProcedi.setBounds(131, 178, 89, 23);
+		btnProcedi.setBounds(143, 178, 89, 23);
 		frmIstruzioni.getContentPane().add(btnProcedi);
 	}
 }
