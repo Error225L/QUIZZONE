@@ -44,7 +44,7 @@ public class Istruzioni {
 		frmIstruzioni.getContentPane().setBackground(new Color(102, 204, 255));
 		frmIstruzioni.setTitle("ISTRUZIONI");
 		frmIstruzioni.setBounds(100, 100, 397, 251);
-		frmIstruzioni.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmIstruzioni.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmIstruzioni.getContentPane().setLayout(null);
 		frmIstruzioni.setVisible(true);
 		

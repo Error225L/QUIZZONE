@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import Model.Domanda;
 import Model.GestioneClient;
 import View.Finestra;
 import View.Istruzioni;
@@ -18,6 +19,7 @@ import View.Istruzioni;
 public class ControllerClient implements ActionListener{
 	private Finestra f;
 	private GestioneClient g;
+	private Domanda dTemp = null;
 	DefaultListModel<String> model = new DefaultListModel<String>();
 	int cont = 0;
 	Object[] options = {"OK"};
@@ -41,20 +43,17 @@ public class ControllerClient implements ActionListener{
 				int optPane = JOptionPane.showOptionDialog(null, "HAI INDOVINATO", "GIUSTO", 
 						JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 				stampaNuovaDomanda();
-				g.sendOk();
 			}
 			if(e.getSource()==f.getBtnRispFalse()) {
 				f.getBtnRispFalse().setBackground(Color.RED);
 				int optPane = JOptionPane.showOptionDialog(null, "HAI SBAGLIATO !", "SBAGLIATO", 
 						JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 				stampaNuovaDomanda();
-				g.sendOk();
 			}
 			if(e.getSource()==f.getBtnSucc()) {
 				int dialogResult = JOptionPane.showConfirmDialog (null, "Voui davvero saltare questa domanda?","Attenzione!",JOptionPane.YES_NO_OPTION);
 				if(dialogResult==0) {		
 					stampaNuovaDomanda();
-					g.sendOk();
 				}
 			}
 			if(e.getSource()==f.getBtnIstruzioni()) {
@@ -64,14 +63,27 @@ public class ControllerClient implements ActionListener{
 		}
 	}
 	
-	private void stampaNuovaDomanda() {
-		model.clear();
-		model.addElement(g.getNewDomanda().getDomanda());
-		f.getList().setModel(model);
-		f.getBtnRispTrue().setText(g.getRispVera());
-		f.getBtnRispFalse().setText(g.getRispFalsa());;
-		f.getBtnRispTrue().setBackground(Color.WHITE);
-		f.getBtnRispFalse().setBackground(Color.WHITE);
+	private void stampaNuovaDomanda() throws IOException, InterruptedException {
+		dTemp = g.getNewDomanda();
+		if(dTemp.getDomanda().compareTo("Domande_Finite")==0) {
+			int optPane = JOptionPane.showOptionDialog(null, "Sono terminate le domande! Se vuoi continuare chiedi al gestore del server di aggiungerne altre.", "ATTENZIONE", 
+					JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+			while(dTemp.getDomanda().compareTo("Domande_Finite")==0) {
+				Thread.sleep(750);
+				g.sendOk();
+				dTemp = g.getNewDomanda();
+			}
+		}
+		else {
+			model.clear();
+			model.addElement(dTemp.getDomanda());
+			f.getList().setModel(model);
+			f.getBtnRispTrue().setText(dTemp.getRispostaVera());
+			f.getBtnRispFalse().setText(dTemp.getRispostaFalsa());;
+			f.getBtnRispTrue().setBackground(Color.WHITE);
+			f.getBtnRispFalse().setBackground(Color.WHITE);
+			g.sendOk();
+		}
 	}
 	
 	private void addingActionListeners() {

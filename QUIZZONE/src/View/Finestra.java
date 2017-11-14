@@ -45,7 +45,7 @@ public class Finestra {
 		frmQuizzone.getContentPane().setBackground(new Color(135, 206, 250));
 		frmQuizzone.setTitle("QUIZZONE");
 		frmQuizzone.setBounds(100, 100, 410, 353);
-		frmQuizzone.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmQuizzone.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmQuizzone.getContentPane().setLayout(null);
 		
 		btnRispTrue = new JButton("New button");

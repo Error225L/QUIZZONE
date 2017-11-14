@@ -12,14 +12,17 @@ import javax.swing.JOptionPane;
 public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 	
 	private ArrayList<Domanda> domande;
+	int i;
 	
 	public GestioneServer() {
 		this.domande = new ArrayList<Domanda>();
-		
+		i=0;
 	}
 	
 	public void insNuovaDomanda(Domanda nuovaDomanda) {
 		domande.add(nuovaDomanda);
+		i=(domande.size()-1);
+		System.out.println(i);
 	}
 	
 	public ArrayList<Domanda> getVett() {
@@ -38,20 +41,26 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 			Socket s=ss.accept();
 			while(true){
 				PrintWriter p = new PrintWriter(s.getOutputStream(),true);
-				int i=0;
 				boolean f=true;
 				while(f==true){
-					for(int j=1; j<=3; j++) {
-						switch(j) {
-							case 1:
-								p.println(domande.get(i).getDomanda());
-								break;
-							case 2:
-								p.println(domande.get(i).getRispostaVera());
-								break;
-							case 3:
-								p.println(domande.get(i).getRispostaFalsa());
-								break;
+					if(i>=domande.size()) {
+						p.println("Domande_Finite");
+						p.println("");
+						p.println("");
+					}
+					else {
+						for(int j=1; j<=3; j++) {
+							switch(j) {
+								case 1:
+									p.println(domande.get(i).getDomanda());
+									break;
+								case 2:
+									p.println(domande.get(i).getRispostaVera());
+									break;
+								case 3:
+									p.println(domande.get(i).getRispostaFalsa());
+									break;
+							}
 						}
 					}
 					f=false;
