@@ -16,8 +16,8 @@ import javax.swing.ImageIcon;
 public class Finestra {
 
 	private JFrame frmQuizzone;
-	private JButton btnRispTrue;
-	private JButton btnRispFalse;
+	private JButton btnSx;
+	private JButton btnDx;
 	private JScrollPane scrollPane;
 	private JList list;
 	private JButton btnIstruzioni;
@@ -48,15 +48,15 @@ public class Finestra {
 		frmQuizzone.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmQuizzone.getContentPane().setLayout(null);
 		
-		btnRispTrue = new JButton("New button");
-		btnRispTrue.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnRispTrue.setBounds(33, 258, 150, 46);
-		frmQuizzone.getContentPane().add(btnRispTrue);
+		btnSx = new JButton("New button");
+		btnSx.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnSx.setBounds(33, 258, 150, 46);
+		frmQuizzone.getContentPane().add(btnSx);
 		
-		btnRispFalse = new JButton("New button");
-		btnRispFalse.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnRispFalse.setBounds(204, 258, 150, 46);
-		frmQuizzone.getContentPane().add(btnRispFalse);
+		btnDx = new JButton("New button");
+		btnDx.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnDx.setBounds(204, 258, 150, 46);
+		frmQuizzone.getContentPane().add(btnDx);
 		
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 140, 374, 107);
@@ -93,21 +93,20 @@ public class Finestra {
 		this.frmQuizzone = frmQuizzone;
 	}
 
-	public JButton getBtnRispTrue() {
-		return btnRispTrue;
-	}
-	
-
-	public void setBtnRispTrue(JButton btnRispTrue) {
-		this.btnRispTrue = btnRispTrue;
+	public JButton getBtnSx() {
+		return btnSx;
 	}
 
-	public JButton getBtnRispFalse() {
-		return btnRispFalse;
+	public void setBtnSx(JButton btnSx) {
+		this.btnSx = btnSx;
 	}
 
-	public void setBtnRispFalse(JButton btnRispFalse) {
-		this.btnRispFalse = btnRispFalse;
+	public JButton getBtnDx() {
+		return btnDx;
+	}
+
+	public void setBtnDx(JButton btnDx) {
+		this.btnDx = btnDx;
 	}
 
 	public JList getList() {

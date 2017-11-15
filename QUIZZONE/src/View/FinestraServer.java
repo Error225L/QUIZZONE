@@ -208,4 +208,9 @@ public class FinestraServer {
 	public void setBtnAggDomPredef(JButton btnAggDomPredef) {
 		this.btnAggDomPredef = btnAggDomPredef;
 	}
+
+
+	public void close() {
+		frmQuizzone.dispose();
+	}
 }

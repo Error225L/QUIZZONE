@@ -7,22 +7,25 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import View.FinestraServer;
 
 public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 	
 	private ArrayList<Domanda> domande;
 	int i;
+	private FinestraServer frmQuizzone;
 	
-	public GestioneServer() {
+	public GestioneServer(FinestraServer frmQuizzone) {
 		this.domande = new ArrayList<Domanda>();
 		i=0;
+		this.frmQuizzone = frmQuizzone;
 	}
 	
 	public void insNuovaDomanda(Domanda nuovaDomanda) {
 		domande.add(nuovaDomanda);
-		i=(domande.size()-1);
-		System.out.println(i);
 	}
 	
 	public ArrayList<Domanda> getVett() {
@@ -45,8 +48,8 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 				while(f==true){
 					if(i>=domande.size()) {
 						p.println("Domande_Finite");
-						p.println("");
-						p.println("");
+						p.println("NULL");
+						p.println("NULL");
 					}
 					else {
 						for(int j=1; j<=3; j++) {
@@ -74,8 +77,10 @@ public class GestioneServer extends ArrayList<Domanda> implements Runnable{
 					else {
 						f=true;
 					}
+					if(ricezione.compareTo("CLOSE")==0) {
+						frmQuizzone.close();
+					}
 				}
-				//tornare all'inizio per accettare nuova conn
 			}
 		}catch(Exception e){
 			

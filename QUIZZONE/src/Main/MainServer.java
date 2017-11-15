@@ -8,7 +8,7 @@ public class MainServer {
 
 	public static void main(String[] args) {
 		FinestraServer f = new FinestraServer();
-		GestioneServer g = new GestioneServer();
+		GestioneServer g = new GestioneServer(f);
 		ControllerServer c = new ControllerServer(f, g);
 	}
 

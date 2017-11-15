@@ -8,7 +8,6 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 
 public class GestioneClient {
 	Domanda d;
@@ -59,6 +58,11 @@ public class GestioneClient {
 	public void sendNotOk() throws IOException {
 		PrintWriter p = new PrintWriter(s.getOutputStream(), true);
 		p.println("NOTOK");
+	}
+	
+	public void sendClosingOperation() throws IOException {
+		PrintWriter p = new PrintWriter(s.getOutputStream(), true);
+		p.println("CLOSE");
 	}
 	
 	public Socket getS() {
