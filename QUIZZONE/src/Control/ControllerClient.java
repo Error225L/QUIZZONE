@@ -70,7 +70,7 @@ public class ControllerClient implements ActionListener{
 					JOptionPane.PLAIN_MESSAGE, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 			while(dTemp.getDomanda().compareTo("Domande_Finite")==0) {
 				Thread.sleep(750);
-				g.sendOk();
+				g.sendNotOk();
 				dTemp = g.getNewDomanda();
 			}
 		}

@@ -56,6 +56,11 @@ public class GestioneClient {
 		p.println("OK");
 	}
 	
+	public void sendNotOk() throws IOException {
+		PrintWriter p = new PrintWriter(s.getOutputStream(), true);
+		p.println("NOTOK");
+	}
+	
 	public Socket getS() {
 		return s;
 	}
