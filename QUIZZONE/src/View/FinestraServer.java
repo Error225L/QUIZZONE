@@ -16,6 +16,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+import java.awt.Toolkit;
 
 public class FinestraServer {
 
@@ -29,6 +30,7 @@ public class FinestraServer {
 	private JLabel lblRispTrue;
 	private JLabel lblRispFalse;
 	private JButton btnAggDomPredef;
+	private JLabel Q;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -61,6 +63,7 @@ public class FinestraServer {
 
 	private void initialize() {
 		frmQuizzone = new JFrame();
+		frmQuizzone.setIconImage(Toolkit.getDefaultToolkit().getImage(FinestraServer.class.getResource("/Immagine/Quizzone.png")));
 		frmQuizzone.setResizable(false);
 		frmQuizzone.getContentPane().setBackground(new Color(135, 206, 250));
 		frmQuizzone.setTitle("QUIZZONE");
@@ -126,10 +129,10 @@ public class FinestraServer {
 		lblRispFalse.setBounds(23, 192, 121, 18);
 		frmQuizzone.getContentPane().add(lblRispFalse);	
 		
-		JLabel lblNewLabel = new JLabel("QUIZZONE");
+		JLabel lblNewLabel = new JLabel("UIZZONE");
 		lblNewLabel.setFont(new Font("Vineta BT", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(117, 11, 162, 46);
+		lblNewLabel.setBounds(139, 11, 162, 46);
 		frmQuizzone.getContentPane().add(lblNewLabel);
 		
 		btnAggDomPredef = new JButton("");
@@ -137,6 +140,11 @@ public class FinestraServer {
 		btnAggDomPredef.setIcon(new ImageIcon(FinestraServer.class.getResource("/Immagine/dice.png")));
 		btnAggDomPredef.setBounds(49, 271, 29, 34);
 		frmQuizzone.getContentPane().add(btnAggDomPredef);
+		
+		Q = new JLabel("New label");
+		Q.setIcon(new ImageIcon(FinestraServer.class.getResource("/Immagine/Quizzone.png")));
+		Q.setBounds(143, 11, 33, 33);
+		frmQuizzone.getContentPane().add(Q);
 	}
 
 
