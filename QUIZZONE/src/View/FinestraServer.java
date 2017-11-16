@@ -134,7 +134,7 @@ public class FinestraServer {
 		
 		btnAggDomPredef = new JButton("");
 		btnAggDomPredef.setForeground(Color.WHITE);
-		btnAggDomPredef.setIcon(new ImageIcon("C:\\Users\\Alunno\\git\\QUIZZONE\\QUIZZONE\\src\\dice.png"));
+		btnAggDomPredef.setIcon(new ImageIcon(FinestraServer.class.getResource("/Immagine/dice.png")));
 		btnAggDomPredef.setBounds(49, 271, 29, 34);
 		frmQuizzone.getContentPane().add(btnAggDomPredef);
 	}
