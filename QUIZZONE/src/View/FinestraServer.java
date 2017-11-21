@@ -132,7 +132,7 @@ public class FinestraServer {
 		JLabel lblNewLabel = new JLabel("UIZZONE");
 		lblNewLabel.setFont(new Font("Vineta BT", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(139, 11, 162, 46);
+		lblNewLabel.setBounds(170, 11, 162, 46);
 		frmQuizzone.getContentPane().add(lblNewLabel);
 		
 		btnAggDomPredef = new JButton("");
